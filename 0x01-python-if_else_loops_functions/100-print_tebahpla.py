@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # Goodluck N. TIMOTHY, @southboy_tim on SM
 
-#Print the alphabet in reverse order alternating upper/lower-case
+# Print the alphabet in reverse order alternating upper/lower-case
 
 i = 0
 for c in range(ord('z'), ord('a') - 1, -1):
