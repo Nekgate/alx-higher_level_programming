@@ -10,6 +10,8 @@ if argc == 0:
     argStr += 's.'
 elif argc == 1:
     argStr += ':'
+else:
+    argStr += 's:'
 print(argStr.format(argc))
 
 i = 0
