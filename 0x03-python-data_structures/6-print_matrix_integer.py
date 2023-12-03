@@ -10,5 +10,6 @@ def print_matrix_integer(matrix=[[]]):
             if j != tendr_len - 1:
                 endChk = ' '
             else:
-                endChk = '\n'
+                endChk = ''
             print("{:d}".format(matrix[i][j]), end=endChk)
+        print("")
