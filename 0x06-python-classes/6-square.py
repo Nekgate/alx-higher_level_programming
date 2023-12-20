@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# 5-Square.py based on 4-square.py
+# 6-Square.py based on 5-square.py
 """Defines a Square module """
 
 
