@@ -2,7 +2,8 @@
 
 
 class LockedClass:
-    """ Locked class: We can't set instance attribute to it"""
+    """Locked class: can't set instance attributes to it
+    """
     def __setattr__(self, name, value):
         if name == "first_name":
             self.__dict__[name] = value
