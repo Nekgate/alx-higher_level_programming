@@ -1,14 +1,14 @@
 #!/usr/bin/python3
-"""A class Rectangle(inherit 7-base_geometry.py).
-(task based on 8-rec)."""
+"""
+A class Rectangle(inherit 7-base_geometry.py).(task based on 8-rec)
+"""
 
 
-BaseGeometry = __import__("7-base_geometry").BaseGeometry
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 
 class Rectangle(BaseGeometry):
-    """ Rectangle definition
-    """
+    """ definition of a Rectangle """
     def __init__(self, width, height):
         """ constructor and width, height"""
         self.__width = width
@@ -20,5 +20,5 @@ class Rectangle(BaseGeometry):
         return self.__width * self.__height
 
     def __str__(self):
-        """print"""
-        return ("[Rectangle] " + str(self.__witdth) + "/" + str(self.__height))
+        """ print """
+        return ("[Rectangle] " + str(self.__width) + "/" + str(self.__height))
