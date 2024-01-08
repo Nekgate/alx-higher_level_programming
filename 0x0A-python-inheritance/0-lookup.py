@@ -1,7 +1,10 @@
 #!/usr/bin/python3
-""" A function that return list
-"""
+''' This function returns the list
+'''
 
 
 def lookup(obj):
+    ''' function: lookup()
+    Returns a list object
+    '''
     return dir(obj)
