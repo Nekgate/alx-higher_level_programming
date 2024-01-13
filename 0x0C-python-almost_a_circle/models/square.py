@@ -28,15 +28,24 @@ class Square(Rectangle):
     def update(self, *args, **kwargs):
         if args:
             self.id = args[0]
-            args = args[1:]
-
-        if args:
-            self.size = args[0]
-        elif 'size' in kwargs:
-            self.size = kwargs['size']
+            if len(args) > 1:
+                self.size = args[1]
+            if len(args) > 2:
+                self.x = args[2]
+            if len(args) > 3:
+                self.y = args[3]
+        elif kwargs:
+            if 'id' in kwargs:
+                self.id = kwargs['id']
+            if 'size' in kwargs:
+                self.size = kwargs['size']
+            if 'x' in kwargs:
+                self.x = kwargs['x']
+            if 'y' in kwargs:
+                self.y = kwargs['y']
 
     """
-    Getter and Setter for size
+    Public getter and Setter for size
     """
     @property
     def size(self):

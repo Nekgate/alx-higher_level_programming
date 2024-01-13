@@ -94,15 +94,34 @@ class Rectangle(Base):
                 f"({self.x}/{self.y} - {self.width}/{self.height})")
 
     """
-    Public method to update attributes using key-worded arguments
+    Public method to return dictionary representation
     """
+    def to_dictionary(self):
+        return{'id': self.id, 'width': self.width,
+               'height': self.height, 'x': self.x, 'y': self.y}
+
     def update(self, *args, **kwargs):
         if args:
             self.id = args[0]
-            args = args[1:]
-
-        for key, value in kwargs.items():
-            setattr(self, key, value)
+            if len(args) > 1:
+                self.width = args[1]
+            if len(args) > 2:
+                self.height = args[2]
+            if len(args) > 3:
+                self.x = args[3]
+            if len(args) > 4:
+                self.y = args[4]
+        elif kwargs:
+            if 'id' in kwargs:
+                self.id = kwargs['id']
+            if 'width' in kwargs:
+                self.width = kwargs['width']
+            if 'height' in kwargs:
+                self.height = kwargs['height']
+            if 'x' in kwargs:
+                self.x = kwargs['x']
+            if 'y' in kwargs:
+                self.y = kwargs['y']
 
     """
     Validating positive integers with private helper method
