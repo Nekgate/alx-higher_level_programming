@@ -1,73 +1,52 @@
-#!/usr/bin/pythonv3
-"""
-Class Module
-"""
+#!/usr/bin/python3
+""" Class Square """
 from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
-    """
-    Defining the class Square that inherits from class Rectangle
-    """
+    """ Defining the class Rectangle that innherits from class Base """
     def __init__(self, size, x=0, y=0, id=None):
-        """
-        Call the superclass constructor with id, x, y, width, and height
-        """
+        """ Initializing a Square """
         super().__init__(size, size, x, y, id)
 
-    """
-    Override the __str__ method
-    """
     def __str__(self):
-        return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
+        """ String represation of square """
+        return "[Square] ({}) {}/{} - {}".format(self.id,
+                                                 self.x, self.y, self.width)
 
-    """
-    Override the update method to allow updating
-    size using key-worded arguments
-    """
-    def update(self, *args, **kwargs):
-        if args:
-            self.id = args[0]
-            if len(args) > 1:
-                self.size = args[1]
-            if len(args) > 2:
-                self.x = args[2]
-            if len(args) > 3:
-                self.y = args[3]
-        elif kwargs:
-            if 'id' in kwargs:
-                self.id = kwargs['id']
-            if 'size' in kwargs:
-                self.size = kwargs['size']
-            if 'x' in kwargs:
-                self.x = kwargs['x']
-            if 'y' in kwargs:
-                self.y = kwargs['y']
-
-    """
-    Public method to return dictionary representation
-    """
-    def to_dictionary(self):
-        return {'id': self.id, 'x': self.x, 'size': self.size, 'y': self.y}
-
-    """
-    Public getter and Setter for size
-    """
     @property
     def size(self):
+        """ Square size getter """
         return self.width
 
     @size.setter
     def size(self, value):
-        self.__validate_positive_int("width", value)
+        """ Square size setter """
         self.width = value
         self.height = value
 
-    """
-    Validating positive integers with private helper method
-    """
-    def __validate_positive_int(self, attr_name, value):
-        if not isinstance(value, int):
-            raise TypeError(f"{attr_name} must be an integer")
-        elif value <= 0:
-            raise ValueError(f"{attr_name} must be > 0")
+    def update(self, *args, **kwargs):
+        """ Updates arguments in Square """
+        if len(args):
+            for i, arg in enumerate(args):
+                if i == 0:
+                    self.id = arg
+                elif i == 1:
+                    self.size = arg
+                elif i == 2:
+                    self.x = arg
+                elif i == 3:
+                    self.y = arg
+        else:
+            for key, value in kwargs.items():
+                if hasattr(self, key) is True:
+                    setattr(self, key, value)
+
+    def to_dictionary(self):
+        """ Return dictonary representation of class Square """
+        return {
+            "id": self.id,
+            "size": self.size,
+            "x": self.x,
+            "y": self.y
+        }
