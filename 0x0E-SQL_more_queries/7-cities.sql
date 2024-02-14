@@ -7,6 +7,7 @@ CREATE TABLE IF NOT EXISTS cities (
     id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     state_id INT NOT NULL,
     name VARCHAR(256) NOT NULL,
-    PRIMARY KEY(id),
-    FOREIGN KEY (state_id) REFERENCE states(id) ON DELETE CASCADE
+    UNIQUE(id),
+    FOREIGN KEY(state_id)
+        REFERENCE states(id)
 );
