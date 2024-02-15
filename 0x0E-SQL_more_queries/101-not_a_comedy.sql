@@ -4,7 +4,7 @@ SELECT DISTINCT title
     FROM tv_shows
     WHERE title NOT IN
     (
-        SELECT tv_shows_titles
+        SELECT tv_shows.title
             FROM tv_shows
             RIGHT JOIN tv_show_genres
                 ON tv_show_genres.show_id = tv_shows.id
