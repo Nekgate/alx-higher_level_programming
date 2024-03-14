@@ -1,11 +1,11 @@
--- This script lists all Comedy shows in the database hbtn_0d_tvshows.
+-- This script lists all shows, and all genres linked to
+-- that show, from the database hbtn_0d_tvshows.
 
--- Use of inner join, to join more than 2 tables
-SELECT tv_shows.title
+-- using join to dsplay data and order based on title and name
+SELECT tv_shows.title, tv_genres.name
 FROM tv_shows
-JOIN tv_show_genres
+LEFT JOIN tv_show_genres
 ON tv_show_genres.show_id = tv_shows.id
-JOIN tv_genres
+LEFT JOIN tv_genres
 ON tv_show_genres.genre_id = tv_genres.id
-WHERE tv_genres.name = 'Comedy'
-ORDER BY tv_shows.title;
+ORDER BY tv_shows.title, tv_genres.name;

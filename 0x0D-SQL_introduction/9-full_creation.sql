@@ -1,4 +1,4 @@
--- Creates and fills a table second_table with attributes id, name and score.
+-- A Script that creates and fills a table second_table with attributes id, name and score.
 -- In MySQL server and also add multiple role.
 CREATE TABLE IF NOT EXISTS `second_table` (`id` INT, `name` VARCHAR(256), `score` INT);
 INSERT INTO `second_table` (`id`, `name`, `score`) VALUES (1, "John", 10);
