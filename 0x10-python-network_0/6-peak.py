@@ -1,17 +1,22 @@
 #!/usr/bin/python3
-""" Module returns the peak of the list
+""" This module returns the peak of the list
 """
 
 
 def find_peak(list_of_integers):
-    """ Function returns the peak of the list
+    """ This function returns the peak of the list using binary search
     """
-    if (len(list_of_integers) == 0):
+    if not list_of_integers:
         return None
 
-    else:
-        peak = list_of_integers[0]
-        for i in range(len(list_of_integers)):
-            if list_of_integers[i] > peak:
-                peak = list_of_integers[i]
-        return peak
+    low = 0
+    high = len(list_of_integers) - 1
+
+    while low < high:
+        mid = (low + high) // 2
+        if list_of_integers[mid] < list_of_integers[mid + 1]:
+            low = mid + 1
+        else:
+            high = mid
+
+    return list_of_integers[low]
